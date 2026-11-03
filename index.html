@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#0B1F5C">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ANORA Admin">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <title>ANORA Admin</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/reader.css">
+  <link rel="stylesheet" href="css/tema.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="lewati" href="#" data-lewati>Lewati ke konten utama</a>
+  <noscript><p class="banner banner-galat">Website ini memerlukan JavaScript. Aktifkan JavaScript di browser Anda.</p></noscript>
+
+  <div id="muat-awal" class="muat-awal" role="status">
+    <img src="assets/logo.png" alt="ANORA" width="168" height="112">
+    <p>Memuat…</p>
+  </div>
+
+  <div id="toast-area" class="toast-area" aria-live="polite"></div>
+
+  <!-- LOGIN ADMIN -->
+  <main id="login" class="login-halaman" tabindex="-1" hidden>
+    <div class="login-kartu">
+      <img src="assets/logo.png" alt="ANORA" width="108" height="72">
+      <h1>Masuk Admin</h1>
+      <p class="lembut tengah">Khusus pengelola bimbel ANORA.</p>
+      <p id="pesan-login" class="banner" role="status" hidden></p>
+      <form id="form-login" novalidate>
+        <div class="kolom">
+          <label for="in-email">Email</label>
+          <input id="in-email" type="email" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="120">
+        </div>
+        <div class="kolom">
+          <label for="in-sandi">Password</label>
+          <div class="kolom-sandi">
+            <input id="in-sandi" type="password" autocomplete="current-password" maxlength="72">
+            <button type="button" id="tombol-mata" class="ikon-tombol tombol-mata" aria-pressed="false" aria-label="Tampilkan password"></button>
+          </div>
+        </div>
+        <p id="galat-login" class="galat-form" role="alert" hidden></p>
+        <button type="submit" id="kirim-login" class="tombol tombol-utama tombol-penuh">Masuk</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- APLIKASI ADMIN -->
+  <div id="app" hidden>
+    <header class="app-header">
+      <button type="button" class="ikon-tombol menu-tombol" id="tombol-menu" aria-label="Buka menu" aria-expanded="false" aria-controls="sidebar"><span class="ikon" data-ikon="menu"></span></button>
+      <img class="app-logo" src="assets/logo.png" alt="ANORA Admin" width="66" height="44">
+      <h1 id="judul-halaman" class="judul-halaman"></h1>
+      <div class="app-pengguna">
+        <span id="email-admin" class="email-admin"></span>
+        <button type="button" id="keluar-atas" class="tombol tombol-garis kecil">Keluar</button>
+      </div>
+    </header>
+    <div class="app-badan">
+      <nav id="sidebar" class="sidebar" aria-label="Menu admin">
+        <ul id="daftar-menu" class="menu"></ul>
+        <div class="menu-pemisah"><button type="button" class="menu-tautan" id="keluar-menu"><span class="ikon" data-ikon="keluar"></span>Keluar</button></div>
+      </nav>
+      <div id="scrim-menu" class="scrim scrim-menu" aria-hidden="true"></div>
+      <main id="konten" class="konten" tabindex="-1"></main>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* ANORA admin — tema.css: penyegaran tampilan + penyesuaian HP (iPhone dan Android).
+   Dimuat PALING AKHIR di index.html. Hapus satu baris <link> untuk kembali ke tampilan lama. */
+:root{
+  --radius:18px;--radius-kecil:12px;
+  --bayang:0 12px 32px rgba(11,31,92,.11);
+  --bayang-kecil:0 2px 12px rgba(11,31,92,.08);
+  --aman-atas:env(safe-area-inset-top,0px);--aman-bawah:env(safe-area-inset-bottom,0px);
+  --aman-kiri:env(safe-area-inset-left,0px);--aman-kanan:env(safe-area-inset-right,0px);
+  color-scheme:light;
+}
+html{-webkit-tap-highlight-color:rgba(13,71,161,.14)}
+body{min-height:100vh;min-height:100dvh;background:linear-gradient(180deg,#F6F9FE 0,#EAF0FC 100%);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a,button,label,summary,select{touch-action:manipulation}
+input,select,textarea{font-size:max(16px,1rem)}
+input[type=date],input[type=time]{-webkit-appearance:none;appearance:none;min-height:48px}
+
+/* Tombol, kartu, tabel */
+.tombol{min-height:48px;box-shadow:0 3px 0 rgba(11,31,92,.14);transition:transform .12s,box-shadow .12s,background-color .15s}
+.tombol:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(11,31,92,.14)}
+.tombol-utama{background:linear-gradient(180deg,#1A5BC4,#0D47A1)}
+.tombol-emas{background:linear-gradient(180deg,#FFD43B,#FBB024)}
+.tombol-bahaya{background:linear-gradient(180deg,#D4493A,#C0392B)}
+.tombol-garis,.tombol[disabled]{box-shadow:none}
+.kartu,.kartu-stat,.stat,.filter,.panduan,.kartu-impor,.baris-siswa,.baris-analisis{border-radius:var(--radius);box-shadow:var(--bayang-kecil)}
+.tabel{border-radius:var(--radius);overflow:hidden}
+.tabel tbody tr:hover{background:#F7FAFF}
+.stat-nilai{background:linear-gradient(135deg,var(--royal),var(--tengah));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+
+/* Header, menu, isi halaman */
+.app-header{min-height:calc(64px + var(--aman-atas));padding:calc(.4rem + var(--aman-atas)) calc(1rem + var(--aman-kanan)) .4rem calc(1rem + var(--aman-kiri));background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);box-shadow:var(--bayang-kecil)}
+.sidebar{padding-top:calc(1rem + var(--aman-atas));padding-bottom:calc(1rem + var(--aman-bawah));overscroll-behavior:contain}
+.menu-tautan{min-height:52px;border-radius:14px}
+.menu-tautan .ikon{color:var(--royal)}
+.menu-tautan[aria-current="page"]{background:linear-gradient(90deg,#DCE7FA,#EAF1FD)}
+.konten{padding-left:calc(1rem + var(--aman-kiri));padding-right:calc(1rem + var(--aman-kanan));padding-bottom:calc(4rem + var(--aman-bawah))}
+.toast-area{bottom:calc(1rem + var(--aman-bawah))}
+.sticky-simpan{padding-bottom:calc(.8rem + var(--aman-bawah))}
+.login-halaman{padding-top:calc(1rem + var(--aman-atas));padding-bottom:calc(1rem + var(--aman-bawah))}
+
+/* HP dan tablet kecil */
+@media (max-width:899px){
+  .filter{grid-template-columns:1fr}
+  .kepala-bagian .tombol,.aksi-baris .tombol{flex:1 1 auto}
+  .dlg-latar{align-items:end;padding:0}
+  .dlg,.dlg.lebar,.dlg.sangat-lebar{width:100%;max-width:none;max-height:92vh;max-height:92dvh;padding:1.1rem 1rem 0;border-radius:24px 24px 0 0;overscroll-behavior:contain}
+  .dlg-aksi{position:sticky;bottom:0;z-index:2;margin:1rem -1rem 0;padding:.8rem 1rem calc(.8rem + var(--aman-bawah));background:#fff;border-top:1px solid var(--garis)}
+  .dlg-aksi .tombol{flex:1 1 auto}
+  .tab{padding:.7rem .9rem}
+}
+@media (pointer:coarse){
+  .ikon-tombol{width:48px;height:48px}
+  .seg{min-height:46px}
+  .menu-titik summary{width:48px;height:48px}
+}
+
+/* Pembaca PDF (pratinjau): notch iPhone */
+.pembaca{overscroll-behavior:none}
+.pb-atas{padding-top:calc(.25rem + var(--aman-atas));padding-left:calc(.75rem + var(--aman-kiri));padding-right:calc(.75rem + var(--aman-kanan))}
+.pb-bawah{padding-left:calc(.75rem + var(--aman-kiri));padding-right:calc(.75rem + var(--aman-kanan))}
+.pb-panggung{overscroll-behavior:contain}
